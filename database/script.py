@@ -51,7 +51,7 @@ def add_books_from_csv(conn, csv_file):
                 cursor.execute("INSERT INTO books (title, author_id) VALUES (%s, %s)", (title, author_id))
 
         conn.commit()
-        print("Succesfully added books from csv file!")
+        print("Successfully added books from csv file!")
 
     except Error as e:
         conn.rollback()
