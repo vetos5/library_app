@@ -2,17 +2,18 @@
 <html>
 <head>
     <title>Delete Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_book.css') }}">
+     <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
+
 </head>
 <body>
     <h1>Delete Book</h1>
-
-    <p>Are you sure you want to delete the book "{{ book.title }}" by {{ book.author.name }}?</p>
-
+    <div class="que">Are you sure you want to delete the book "{{ book.title }}" by {{ book.author.name }}?</div>
     <form action="" method="post">
         <input type="submit" value="Delete Book">
     </form>
 
-    <p><a href="{{ url_for('index') }}">Back to book list</a></p>
+    <div class="back-link"><a href="{{ url_for('index') }}">Back to homepage</a></div>
 
 </body>
 </html>

@@ -2,27 +2,40 @@
 <html>
 <head>
     <title>Filter Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/filter_books.css') }}">
+     <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
 </head>
 <body>
-    <h1>Filter Books</h1>
+    <div class="searchbar">
     <form action="" method="post">
         <label for="search">Search:</label>
         <input type="text" id="search" name="search" placeholder="Title or Author" value="{{ search_query }}" required>
         <button type="submit">Search</button>
         <button type="submit" name="delete_filter" value="true">Delete Filter</button>
     </form>
-
+    </div>
     {% if books %}
         <h2>Filtered Books</h2>
-        <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.author.name }}</li>
-        {% endfor %}
-        </ul>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author.name }}</td>
+                <td>
+                    <a href="{{ url_for('update_book', book_id=book.id) }}">Edit</a>
+                    <a href="{{ url_for('delete_book', book_id=book.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     {% else %}
         <p>No books found.</p>
     {% endif %}
-
-<p><a href="{{ url_for('index') }}">Back to Library Manager</a></p>
+    <div class="back-link"><a href="{{ url_for('index') }}">Back to homepage</a></div>
 </body>
 </html>

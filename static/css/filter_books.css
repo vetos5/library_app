@@ -1,5 +1,85 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form button {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+table th, table td {
+    padding: 8px;
+     text-align: left;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
@@ -86,9 +166,7 @@ p a:hover {
 table {
             width: 80%;
             border-collapse: collapse;
-            table-layout: fixed;
-            margin-left: 100px;}
-
+            table-layout: fixed; }
 th, td {
     padding: 8px;
             text-align: left;
@@ -98,9 +176,10 @@ th, td {
             white-space: nowrap;
 }
 
-.filter-link img{
-    width: 50px;
-    height: auto;
-    float: right;
-    margin-right: 120px;
+.filter-link{
+    font-size: 20px;
+}
+
+.searchbar{
+    margin-top: 70px;
 }

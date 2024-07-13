@@ -2,13 +2,14 @@
 <html lang="eng">
 <head>
     <title>Export Book List</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/export_books.css') }}">
+     <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
 </head>
 <body>
     <h1>Export Book List</h1>
     <form action="" method="post">
         <input type="submit" value="Export to CSV">
     </form>
-    <p><a href="{{ url_for('index') }}">Back to Library Manager</a></p>
+    <div class="back-link"> <a href="{{ url_for('index') }}">Back to homepage</a></div>
 </body>
 </html>

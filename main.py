@@ -20,12 +20,15 @@ class Books(db.Model):
     title = db.Column(db.String(100), nullable=False)
     author_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
 
-
 @app.route('/')
-def index():
-    books = Books.query.all()
-    authors = Authors.query.all()
-    return render_template('index.html', books=books, authors=authors)
+@app.route('/page/<int:page>')
+def index(page=1):
+    per_page = 10
+    books = Books.query \
+                 .join(Authors) \
+                 .order_by(Books.id) \
+                 .paginate(page=page, per_page=per_page)
+    return render_template('index.html', books=books)
 
 
 @app.route('/add_book', methods=['GET', 'POST'])
@@ -118,7 +121,7 @@ def update_book(book_id):
         else:
             return "Title and author ID are required"
     authors = Authors.query.all()
-    return render_template('update_book.html', book=book, authors=authors)
+    return render_template('update_books.html', book=book, authors=authors)
 
 
 @app.route("/delete_book/<int:book_id>", methods=["GET", "POST"])

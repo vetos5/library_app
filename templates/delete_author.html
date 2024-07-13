@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <title>Delete Author</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_author.css') }}">
+     <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
 </head>
 <body>
-    <h1>Delete Author and Their Books</h1>
+<div class="main_font"><h1>Delete Author and Their Books</h1></div>
     <form action="" method="post">
         <label for="author">Select Author:</label>
         <select id="author" name="author_id">
@@ -15,6 +16,6 @@
         </select><br><br>
         <input type="submit" value="Delete Author and Books">
     </form>
-    <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
+    <div class="back-link"> <a href="{{ url_for('index') }}">Back to homepage</a></div>
 </body>
 </html>

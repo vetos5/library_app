@@ -5,7 +5,7 @@
 -- Dumped from database version 16.1
 -- Dumped by pg_dump version 16.1
 
--- Started on 2024-07-13 11:31:24
+-- Started on 2024-07-13 14:32:38
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -231,58 +231,14 @@ COPY public.books (id, title, author_id) FROM stdin;
 51	The Handmaid's Tale	44
 52	Slaughterhouse-Five	45
 53	Catch-22	46
-54	The Stranger	47
 55	The Name of the Rose	48
 56	The Shining	49
 57	The Stand	49
-58	To Kill a Mockingbird	4
-61	Brave New World	7
-62	The Catcher in the Rye	8
-64	Lord of the Flies	10
-65	Pride and Prejudice	11
-66	The Hobbit	12
-67	Harry Potter and the Sorcerer's Stone	13
-68	The Chronicles of Narnia	14
-69	Moby-Dick	15
-70	The Grapes of Wrath	16
-71	The Road	17
-72	The Hitchhiker's Guide to the Galaxy	18
-73	Jane Eyre	19
-74	Wuthering Heights	20
-75	The Lord of the Rings	12
-76	War and Peace	22
-77	Crime and Punishment	23
-78	The Brothers Karamazov	23
-79	Anna Karenina	22
-80	One Hundred Years of Solitude	26
-81	The Count of Monte Cristo	27
-82	The Picture of Dorian Gray	28
-83	Les Misérables	29
-84	Alice's Adventures in Wonderland	30
-85	A Tale of Two Cities	31
-86	The Alchemist	32
-87	Don Quixote	33
-88	Gone with the Wind	34
-89	The Odyssey	35
-90	The Adventures of Huckleberry Finn	36
-91	The Scarlet Letter	37
-92	Frankenstein	38
-93	Dracula	39
-94	The Iliad	35
-95	Heart of Darkness	41
-96	The Sun Also Rises	42
-97	The Bell Jar	43
-98	The Handmaid's Tale	44
-99	Slaughterhouse-Five	45
-100	Catch-22	46
-101	The Stranger	47
-102	The Name of the Rose	48
-103	The Shining	49
-104	The Stand	49
 11	To Kill a Mockingbird	4
 105	1984	98
 106	The Great Gatsby	99
 107	Animal Farm	98
+54	The Stranger	47
 \.
 
 
@@ -340,7 +296,7 @@ ALTER TABLE ONLY public.books
     ADD CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES public.authors(id) ON DELETE CASCADE;
 
 
--- Completed on 2024-07-13 11:31:25
+-- Completed on 2024-07-13 14:32:38
 
 --
 -- PostgreSQL database dump complete

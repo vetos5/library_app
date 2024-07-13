@@ -3,10 +3,12 @@
 <head>
     <title>Library Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
+
 </head>
 <body>
     <h1>Library Manager</h1>
-    <nav>
+    <nav class="menu">
         <ul>
             <li><a href="{{ url_for('add_book') }}">Add a new book</a></li>
             <li><a href="{{ url_for('add_author') }}">Add a new author</a></li>
@@ -14,7 +16,12 @@
             <li><a href="{{ url_for('delete_author') }}">Delete author and books</a></li>
         </ul>
     </nav>
-    <h2>Book List</h2>
+    <h1>Book List</h1>
+     <div class="filter-link">
+        <a href="{{ url_for('filter_books') }}">
+        <img src="https://cdn-icons-png.freepik.com/256/9424/9424892.png?ga=GA1.1.688485681.1720871755&semt=ais_hybrid" alt="Filter Icon">
+    </a>
+    </div>
     <table>
         <tr>
             <th>Title</th>
@@ -32,6 +39,32 @@
         </tr>
         {% endfor %}
     </table>
-    <p><a href="{{ url_for('filter_books') }}">Filter books by title or author</a></p>
+    <div class="pagination">
+        {% if books.has_prev %}
+        <a href="{{ url_for('index', page=books.prev_num) }}">Previous</a>
+        {% endif %}
+
+        {% for page_num in books.iter_pages() %}
+            {% if page_num %}
+                {% if books.page == page_num %}
+                    <a href="#" class="active">{{ page_num }}</a>
+                {% else %}
+                    <a href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                <span>...</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if books.has_next %}
+        <a href="{{ url_for('index', page=books.next_num) }}">Next</a>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Library. All rights reserved.</p>
+    </footer>
+
+
 </body>
 </html>

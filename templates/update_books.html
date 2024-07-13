@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Update Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/update_books.css') }}">
+    <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
 </head>
 <body>
     <h1>Update Book</h1>
@@ -18,7 +20,7 @@
         <input type="submit" value="Update Book">
     </form>
 
-    <p><a href="{{ url_for('index') }}">Back to book list</a></p>
+    <div class="back-link"><a href="{{ url_for('index') }}">Back to homepage</a></div>
 
 </body>
 </html>
