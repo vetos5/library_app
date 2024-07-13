@@ -1,10 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import csv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:silpo1@localhost/library'
 db = SQLAlchemy(app)
+CORS(app)
 
 
 class Authors(db.Model):
@@ -20,14 +22,15 @@ class Books(db.Model):
     title = db.Column(db.String(100), nullable=False)
     author_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
 
-@app.route('/')
+
+@app.route('/', methods=['GET'])
 @app.route('/page/<int:page>')
 def index(page=1):
     per_page = 10
     books = Books.query \
-                 .join(Authors) \
-                 .order_by(Books.id) \
-                 .paginate(page=page, per_page=per_page)
+        .join(Authors) \
+        .order_by(Books.id) \
+        .paginate(page=page, per_page=per_page)
     return render_template('index.html', books=books)
 
 
@@ -77,7 +80,7 @@ def export_books():
         csv_file = "books_export.csv"
         with open(csv_file, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["Title", "Author"])  # header row
+            writer.writerow(["Title", "Author"])
             writer.writerows(csv_data)
         return send_file(csv_file, as_attachment=True)
     return render_template("export_books.html")
@@ -133,6 +136,7 @@ def delete_book(book_id):
         return redirect(url_for("index"))
     return render_template("delete_book.html", book=book)
 
+
 @app.route('/delete_author', methods=['GET', 'POST'])
 def delete_author():
     authors = Authors.query.all()
@@ -154,5 +158,7 @@ def delete_author():
             return "Author not found"
 
     return render_template('delete_author.html', authors=authors)
+
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5003, host='127.0.0.1')
+    app.run(port=5003, host='0.0.0.0')

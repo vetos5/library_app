@@ -4,31 +4,38 @@ body {
     padding: 0;
     background-color: #f2f2f2;
 }
+
 h1, h2 {
     text-align: center;
     color: #333;
 }
+
 nav {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
     text-align: center;
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
 }
+
 nav ul li {
     display: inline;
     margin-right: 20px;
 }
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
+
 nav ul li a:hover {
     text-decoration: underline;
 }
+
 table {
     width: 80%;
     margin: 20px auto;
@@ -36,27 +43,33 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+
 table th, table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
 table th {
     background-color: #333;
     color: #fff;
 }
+
 table tr:hover {
     background-color: #f2f2f2;
 }
+
 p {
     text-align: center;
     margin-top: 20px;
 }
+
 p a {
     color: #333;
     text-decoration: none;
     font-weight: bold;
 }
+
 p a:hover {
     text-decoration: underline;
 }
@@ -84,21 +97,22 @@ p a:hover {
 
 
 table {
-            width: 80%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            margin-left: 100px;}
+    width: 80%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-left: 100px;
+}
 
 th, td {
     padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.filter-link img{
+.filter-link img {
     width: 50px;
     height: auto;
     float: right;

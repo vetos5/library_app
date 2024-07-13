@@ -6,21 +6,22 @@
     <link rel="icon" type="image/x-icon" href=" https://cdn-icons-png.flaticon.com/128/3038/3038168.png">
 </head>
 <body>
-    <h1>Update Book</h1>
+<h1>Update Book</h1>
 
-    <form action="" method="post">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="{{ book.title }}"><br><br>
-        <label for="author_id">Author:</label>
-        <select id="author_id" name="author_id">
-            {% for author in authors %}
-                <option value="{{ author.id }}" {% if author.id == book.author_id %}selected{% endif %}>{{ author.name }}</option>
-            {% endfor %}
-        </select><br><br>
-        <input type="submit" value="Update Book">
-    </form>
+<form action="" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{ book.title }}"><br><br>
+    <label for="author_id">Author:</label>
+    <select id="author_id" name="author_id">
+        {% for author in authors %}
+        <option value="{{ author.id }}" {% if author.id== book.author_id %}selected{% endif %}>{{ author.name }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+    <input type="submit" value="Update Book">
+</form>
 
-    <div class="back-link"><a href="{{ url_for('index') }}">Back to homepage</a></div>
+<div class="back-link"><a href="{{ url_for('index') }}">Back to homepage</a></div>
 
 </body>
 </html>

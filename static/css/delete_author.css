@@ -52,14 +52,14 @@ form input[type="submit"]:hover {
 .back-link a {
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition on hover */
+    transition: color 0.3s ease;
 }
 
 .back-link a:hover {
     text-decoration: underline;
-    color: #0056b3; /* Darker shade on hover */
+    color: #0056b3;
 }
 
-.main_font{
+.main_font {
     text-align: center;
 }

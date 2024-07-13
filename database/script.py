@@ -11,8 +11,6 @@ connection_parameters = {
 
 csv_file = 'books.csv'
 
-csv_file = 'books.csv'
-
 
 def connect_to_db():
     try:
@@ -35,7 +33,6 @@ def add_books_from_csv(conn, csv_file):
                 title = row[0]
                 author_name = row[1]
 
-                # Check if the book with the same title already exists
                 cursor.execute("SELECT id FROM books WHERE title = %s", (title,))
                 existing_book = cursor.fetchone()
 
