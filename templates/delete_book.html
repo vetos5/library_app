@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Book</title>
+</head>
+<body>
+    <h1>Delete Book</h1>
+
+    <p>Are you sure you want to delete the book "{{ book.title }}" by {{ book.author.name }}?</p>
+
+    <form action="" method="post">
+        <input type="submit" value="Delete Book">
+    </form>
+
+    <p><a href="{{ url_for('index') }}">Back to book list</a></p>
+
+</body>
+</html>

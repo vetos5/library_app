@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Library Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Library Manager</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('add_book') }}">Add a new book</a></li>
+            <li><a href="{{ url_for('add_author') }}">Add a new author</a></li>
+            <li><a href="{{ url_for('export_books') }}">Export book list</a></li>
+            <li><a href="{{ url_for('delete_author') }}">Delete author and books</a></li>
+        </ul>
+    </nav>
+    <h2>Book List</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author.name }}</td>
+            <td>
+                <a href="{{ url_for('update_book', book_id=book.id) }}">Edit</a>
+                <a href="{{ url_for('delete_book', book_id=book.id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('filter_books') }}">Filter books by title or author</a></p>
+</body>
+</html>

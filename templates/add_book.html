@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Add Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Add a New Book</h1>
+    <form action="" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="author">Author:</label>
+        <select id="author" name="author_id">
+            {% for author in authors %}
+                <option value="{{ author.id }}">{{ author.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Add Book">
+    </form>
+    <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Books</title>
+</head>
+<body>
+    <h1>Filter Books</h1>
+    <form action="" method="post">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search" placeholder="Title or Author" value="{{ search_query }}" required>
+        <button type="submit">Search</button>
+        <button type="submit" name="delete_filter" value="true">Delete Filter</button>
+    </form>
+
+    {% if books %}
+        <h2>Filtered Books</h2>
+        <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books found.</p>
+    {% endif %}
+
+<p><a href="{{ url_for('index') }}">Back to Library Manager</a></p>
+</body>
+</html>
