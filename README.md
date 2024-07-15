@@ -77,7 +77,7 @@ Before running the application, ensure you have the following installed on your 
 
     This will populate your `library` database with the data from the dump file.
 
-6. Initialize the database (if not using a dump file):
+6. (Optional) Initialize the database (if not using a dump file):
 
     ```bash
     flask db init
