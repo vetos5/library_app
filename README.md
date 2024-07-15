@@ -67,7 +67,17 @@ Before running the application, ensure you have the following installed on your 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/library'
     ```
 
-5. Initialize the database:
+5. Restore the database dump:
+
+    - There is dump file provided, you can restore it using the following command:
+
+        ```bash
+        psql -U username -d library -f dump-library-202407131432.sql
+        ```
+
+    This will populate your `library` database with the data from the dump file.
+
+6. Initialize the database (if not using a dump file):
 
     ```bash
     flask db init
